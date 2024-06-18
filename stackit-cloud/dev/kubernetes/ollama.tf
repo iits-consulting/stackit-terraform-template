@@ -9,11 +9,6 @@ resource "helm_release" "ollama" {
   values           = [
     yamlencode({
       ollama = {
-        ollama = {
-          gpu = {
-            enabled = false
-          }
-        }
         ingress = {
           host = "ollama.${var.domain_name}"
         }
