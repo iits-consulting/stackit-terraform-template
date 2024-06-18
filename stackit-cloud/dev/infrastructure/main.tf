@@ -1,6 +1,7 @@
 locals {
   public_ip = "193.148.169.144"
 }
+
 resource "stackit_ske_cluster" "private_llm" {
   project_id = var.project_id
   name       = "${var.context}-${var.stage}"
@@ -13,7 +14,29 @@ resource "stackit_ske_cluster" "private_llm" {
       maximum            = "3"
       availability_zones = ["eu01-3"]
       os_version         = "3815.2.1"
-    }
+      volume_size = 20
+      volume_type = "storage_premium_perf1"
+    },
+    {
+      name            = "gpu-nodes"
+      availability_zones = ["eu01-3"]
+      cri             = "containerd"
+      machine_type    = "n1.14d.g1"
+      minimum         = "1"
+      maximum         = "1"
+      os_name         = "ubuntu"
+      os_version = "2204.20240514.0"
+      taints          = [
+        {
+          effect = "PreferNoSchedule"
+          key    = "gpu-node"
+          value  = "true"
+        }
+      ]
+      volume_size = 20
+      volume_type = "storage_premium_perf2"
+    },
+
   ]
 }
 

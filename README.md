@@ -1,6 +1,6 @@
 # Demo for Creating a Private LLM
 
-![Ollama Logo](https://ollama.com/public/ollama.png)
+![Ollama Logo](https://pbs.twimg.com/profile_images/1704899494490357761/EvnqsXn__400x400.jpg)
 
 This project serves as a comprehensive demonstration on how to create a Private LLM. It's designed with simple and understandable code structures, that suits both beginners and intermediate developers who wish to learn in depth about Creation of Private LLMs.
 
